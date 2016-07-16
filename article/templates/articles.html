@@ -4,11 +4,11 @@
 {% block article %}           <!-- # говорит о том где должен применятся этот блок кода в главном файле -->
     <div class="large-12">
     {% for article in articles %}
-        <h6>Date publication: {{ article.article_date }}</h6>
-        <h4><a href="/articles/get/{{ article.id }}">{{ article.article_title }}</a></h4>
-        <p>{{ article.article_text }}</p>
+        <h6>Date publication: {{ article.date }}</h6>
+        <h4><a href="/articles/get/{{ article.id }}">{{ article.title }}</a></h4>
+        <p>{{ article.text }}</p>
         {% if username %}
-        <h><a href="/articles/addlike/{{ article.id }}"> <img src ="{% static "images.png" %}" width="25px" height="25px"></a> {{ article.article_likes }}</h>
+        <h><a href="/articles/addlike/{{ article.id }}"> <img src ="{% static "images.png" %}" width="25px" height="25px"></a> {{ article.likes }}</h>
         {% endif %}
         <hr>
     {% endfor %}

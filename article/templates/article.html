@@ -1,13 +1,15 @@
 {% extends 'main.html' %}        <!-- # строка говорит о том что этот код будет работать с главным файлом main.html -->
 {% block article %}              <!-- # говоріт о том где должен применятся этот блок кода в главном файле -->
-    <h4>{{ article.article_date }}</h4>
-    <h2>{{ article.article_title }}</h2>
-    <h>{{ article.article_text }}</h>
+    <h4>{{ article.date }}</h4>
+    <h2>{{ article.title }}</h2>
+    <h>{{ article.text }}</h>
     <hr>
     <div class="large-offset-0 large-0 columns">
     <p>Comments</p>
     {% for comment in comments %}
-        <p>{{ comment.comments_text }}</p>
+        <p>{{ comment.comments_from.username }}</p>
+        <p>{{ comment.date }}</p>
+        <p>{{ comment.text }}</p>
     {% endfor %}
     {% if username %}
         <form action="/articles/addcomment/{{ article.id }}" method="post">

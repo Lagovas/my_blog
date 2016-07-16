@@ -40,7 +40,7 @@ def article(request, article_id=1):
     args = {}
     args.update(csrf(request))
     args['article'] = Article.objects.get(id=article_id)
-    args['comments'] = Comments.objects.filter(comments_article=article_id)
+    args['comments'] = Comments.objects.filter(article=article_id)
     args['form'] = comment_form
     args['username'] = auth.get_user(request).username
     return render_to_response('article.html', args)
@@ -54,7 +54,6 @@ def addlike(request, article_id):
             article = Article.objects.get(id=article_id)
             article.article_likes += 1                      # увеличиваем количество лайков
             article.save()
-            #render_to_response = redirect('/')
             render_to_response = redirect(request.META.get('HTTP_REFERER', '/'))
             render_to_response.set_cookie(article_id, 'test')
             return render_to_response

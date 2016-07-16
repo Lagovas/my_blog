@@ -7,9 +7,9 @@ class ArticleInline(admin.StackedInline):
     extra = 1
 
 class ArticleAdmin(admin.ModelAdmin):
-    fields = ['article_title', 'article_text', 'article_date']
+    fields = ['title', 'text', 'date']
     inlines = [ArticleInline]
-    list_filter = ['article_date']
+    list_filter = ['date']
 
 admin.site.register(Article, ArticleAdmin)
 

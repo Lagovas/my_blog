@@ -7,4 +7,4 @@ class CommentForm(ModelForm):
     class Meta:                              # class Meta - позволяет описать некоторые риквизиты модели
         model = Comments
         exclude = []
-        fields = ['comments_text']
+        fields = ['text']

@@ -29,11 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 TEMPLATE_DIRS = (
-    #'/Users/egoo/Documents/python/My_web_site/My_project/blog_app/blog_app/templates/',
-    #'/Users/egoo/Documents/python/My_web_site/ve/lib/python3.5/site-packages/django/contrib/admin/templates/',
-    '/Users/egoo/Documents/python/My_web_site/My_project/blog_app/blog_app/templates/',
-    '/Users/egoo/Documents/python/My_web_site/My_project/blog_app/blog_app/article/templates',
-    '/Users/egoo/Documents/python/My_web_site/My_project/blog_app/blog_app/loginsys/templates',
+    os.path.join(BASE_DIR, 'templates'),
 )
 
 # Application definition
@@ -132,5 +128,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    ('static', '/Users/egoo/Documents/python/My_web_site/My_project/blog_app/blog_app/static/'),
+    ('static', os.path.join(BASE_DIR, 'static')),
 ]
